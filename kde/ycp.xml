@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language SYSTEM "language.dtd">
-<language name="YCP" version="0.1" kateversion="2.4" section="Sources" extensions="*.ycp" mimetype="text/x-ycp" license="LGPL" author="Benjamin Weber (benji.weber@gmail.com)">
+<language name="YCP" version="0.1.1" kateversion="2.4" section="Sources" extensions="*.ycp" mimetype="text/x-ycp" license="LGPL" author="Benjamin Weber (benji.weber@gmail.com), colors adapted by J. Daniel Schmidt (jdsn@suse.de)">
 	<highlighting>
 		<list name="statements">
 			<item> break </item>
@@ -386,19 +386,19 @@
 		</contexts>
 		<itemDatas>
 			<itemData name="Normal Text"  defStyleNum="dsNormal"/>
-			<itemData name="Keyword"      defStyleNum="dsKeyword"/>
-			<itemData name="String"       defStyleNum="dsString"/>
+			<itemData name="Keyword"      defStyleNum="dsKeyword" color="#b26718" bold="0"/>
+			<itemData name="String"       defStyleNum="dsString" color="#b21818"/>
 			<itemData name="Comment"      defStyleNum="dsComment"/>
-			<itemData name="Decimal"      defStyleNum="dsDecVal"/>
-			<itemData name="Octal"        defStyleNum="dsBaseN"/>
-			<itemData name="Hex"          defStyleNum="dsBaseN"/>
-			<itemData name="Float"        defStyleNum="dsFloat"/>
-			<itemData name="Data Type"    defStyleNum="dsDataType"/>
-			<itemData name="WFM"    defStyleNum="dsNormal" color="#0095FF" selColor="#FFFFFF" bold="1" italic="0"/>
-			<itemData name="YUI"    defStyleNum="dsNormal" color="#0095FF" selColor="#FFFFFF" bold="1" italic="0"/>
-			<itemData name="SCR"    defStyleNum="dsNormal" color="#0095FF" selColor="#FFFFFF" bold="1" italic="0"/>
-			<itemData name="Widgets"    defStyleNum="dsNormal" color="#0095FF" selColor="#FFFFFF" bold="1" italic="0"/>
-			<itemData name="Function"     defStyleNum="dsFunction"/>
+			<itemData name="Decimal"      defStyleNum="dsDecVal" color="#b21818"/>
+			<itemData name="Octal"        defStyleNum="dsBaseN" color="#b21818"/>
+			<itemData name="Hex"          defStyleNum="dsBaseN" color="#b21818"/>
+			<itemData name="Float"        defStyleNum="dsFloat" color="#b21818"/>
+			<itemData name="Data Type"    defStyleNum="dsDataType" color="#18b218"/>
+			<itemData name="WFM"    defStyleNum="dsNormal" color="#b26718" selColor="#FFFFFF" bold="0" italic="0"/>
+			<itemData name="YUI"    defStyleNum="dsNormal" color="#b26718" selColor="#FFFFFF" bold="0" italic="0"/>
+			<itemData name="SCR"    defStyleNum="dsNormal" color="#b26718" selColor="#FFFFFF" bold="0" italic="0"/>
+			<itemData name="Widgets"    defStyleNum="dsNormal" color="#18b2b2" selColor="#FFFFFF" bold="0" italic="0"/>
+			<itemData name="Function"     defStyleNum="dsFunction" color="#b26718"/>
 			<itemData name="Symbol"       defStyleNum="dsNormal"/>
 			<itemData name="ListMap"       defStyleNum="dsNormal" color="#865E2E" />
 			<itemData name="sym"       defStyleNum="dsNormal" color="#327D00"  bold="1"/>
