@@ -21,3 +21,8 @@ export O=/data/OBS
 export I=/data/IBS
 export Oh=$O/home:jdsn
 export OhF=$O/home:jdsn:Factory
+
+
+function sc() {
+    screen -D -R -c ~/.screenrc-$1
+}
