@@ -9,3 +9,4 @@ alias iosc='osc -A https://api.suse.de'
 alias ibs='osc -A https://api.suse.de'
 alias scd=". /suse/jdsn/bin/scd"
 alias kpdf='okular'
+alias dotglob='shopt -s dotglob'
