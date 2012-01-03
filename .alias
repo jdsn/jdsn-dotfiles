@@ -1,0 +1,11 @@
+alias EX='cd ~/Export/'
+alias IM='cd ~/Import/'
+alias yy='. /suse/jdsn/bin/cdy trunk'
+alias  y='. /suse/jdsn/bin/cdy'
+alias xv='kuickshow'
+alias öl='l'
+alias chwon='chown'
+alias iosc='osc -A https://api.suse.de'
+alias ibs='osc -A https://api.suse.de'
+alias scd=". /suse/jdsn/bin/scd"
+alias kpdf='okular'

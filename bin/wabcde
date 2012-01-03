@@ -1,0 +1,30 @@
+#!/bin/bash
+# wrapper script for a abcde loop
+
+if  [ -z "$1"  -o   ! -b "$1" ]
+then
+  echo "Please specify the device"
+  exit 1
+else
+  DEV=$1
+  shift
+fi
+
+
+while /bin/true
+do
+
+  eject ${DEV}
+  echo "Insert next CD into drive ${DEV}"
+  read l
+  eject -t ${DEV}
+
+  if [ "x$l" == "xq" ]
+  then
+     echo "Quitting ..."
+     exit 0
+  fi
+
+  abcde -d ${DEV}
+
+done

@@ -1,0 +1,45 @@
+[user]
+    name = J. Daniel Schmidt
+    email = my-email-address
+
+[alias]
+  st = status
+  ss = status -s -b
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  ds = diff --stat=200,80
+  lp = log -p
+  lf = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+  lfi = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
+  who = shortlog -s --
+  lc = log ORIG_HEAD.. --stat --no-merges
+  k = !gitk
+  git = !git
+
+
+[branch]
+  autosetuprebase = always
+
+[push]
+	default = current
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+#  current = blue reverse
+#  local = auto
+#  remote = green
+[color "diff"]
+  meta = blue bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = green
+  changed = cyan
+  untracked = magenta
