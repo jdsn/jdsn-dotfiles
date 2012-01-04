@@ -1,0 +1,14 @@
+startup_message off
+defscrollback 2500
+vbell off
+deflogin on
+autodetach on
+# escape ^xx
+hardstatus on
+hardstatus alwayslastline
+
+caption always "%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?"
+hardstatus alwayslastline "%{BW}%0=$USER@$HOSTNAME %{By}%l %{BW}%80=%d/%m/%Y %c%="
+
+bindkey "^[[1;5D" prev  # change window with ctrl-left
+bindkey "^[[1;5C" next  # change window with ctrl-right
