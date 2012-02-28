@@ -13,8 +13,13 @@ _sgr0="$(path tput sgr0 2> /dev/null)"
 # for xterm:
 # export PS1='$(ppwd \l)\u@\h:\w$(__git_ps1 " (%s)")> '
 # for bash
-# export PS1='\u@\h:\w$(__git_ps1 " (%s)")> '
-export PS1='\[$_blgrey\]\u@\h:\[$_sgr0\]\w\[$_bgreen\]$(__git_ps1 " (%s)")\[$_sgr0\]> '
+#export PS1='[\u@\h]\w$(__git_ps1 " (%s)")> '
+export PS1='\[$_blgrey\]\u@\h\[$_sgr0\] \w\[$_bgreen\]$(__git_ps1 " (%s)")\[$_sgr0\]> '
+
+if [ "x$BASH" == "x/usr/bin/rbash" ]
+then
+  export PS1='\u@\h:\w> '
+fi
 
 # enable colors in less for "git diff"
 # export LESS="-RS#3NM~g"
@@ -31,7 +36,7 @@ export PATH=$PATH:~/bin
 #export Oh=$O/home:jdsn
 #export OhF=$O/home:jdsn:Factory
 
-
-function sc() {
-    screen -D -R -c ~/.screenrc-$1
+function mkcd
+{
+  mkdir -p "$*" && cd "$*";
 }
