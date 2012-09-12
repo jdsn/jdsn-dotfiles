@@ -1,14 +1,20 @@
 startup_message off
-defscrollback 2500
+defscrollback 4000
 vbell off
 deflogin on
 autodetach on
 # escape ^xx
-hardstatus on
-hardstatus alwayslastline
 
-caption always "%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?"
-hardstatus alwayslastline "%{BW}%0=$USER@$HOSTNAME %{By}%l %{BW}%80=%d/%m/%Y %c%="
+caption always "%{wB}%0=%H%{kB} %?%-w%?%{bw}%n:%t%?(%u)%?%{kB}%?%+w%? %{wB}%=%c"
 
-bindkey "^[[1;5D" prev  # change window with ctrl-left
-bindkey "^[[1;5C" next  # change window with ctrl-right
+#hardstatus on
+# simple hardstatus
+#hardstatus alwayslastline "%-w%{= BW}%50>%n %t%{-}%+w%<"
+# fancy hardstatus
+#hardstatus alwayslastline "%{BW}%0=$USER@$HOSTNAME %{By}%l %{BW}%80=%d/%m/%Y %c%="
+
+#bindkey "^[[1;5D" prev  # change window with ctrl-left
+#bindkey "^[[1;5C" next  # change window with ctrl-right
+bindkey "^[[1;3D" prev  # change window with alt-left
+bindkey "^[[1;3C" next  # change window with alt-right
+
