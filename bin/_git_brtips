@@ -1,0 +1,2 @@
+#!/bin/bash
+git for-each-ref --shell --format="echo %(refname:short) && git log -n 1 --format=format:\" %%cd - %%h%%n %%s%%n\" %(refname) && echo " refs/heads/ | bash | less -R

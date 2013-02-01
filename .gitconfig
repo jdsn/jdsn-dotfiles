@@ -1,23 +1,31 @@
 [user]
-    name = J. Daniel Schmidt
-    email = my-email-address
+  name = J. Daniel Schmidt
+  email = my-email-address
 
 [alias]
   st = status
   ss = status -s -b
   ci = commit
   br = branch
+  ri = rebase --interactive --autosquash
   co = checkout
+  ffm = merge --ff-only
   df = diff
+  dc = diff --cached
   ds = diff --stat=200,80
   lp = log -p
-  lf = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+  logfind = log -p -S
+  lf = log HEAD --graph --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+  lfa = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   lfi = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
   who = shortlog -s --
   lc = log ORIG_HEAD.. --stat --no-merges
   k = !gitk
   git = !git
-
+  ustat = shortlog -s -n
+  y2make = ! make -f Makefile.cvs && make -i package && echo && echo "----------> DONE"
+  lastten = log -10 --all --date-order
+  brtips = ! _git_brtips
 
 [branch]
   autosetuprebase = always
