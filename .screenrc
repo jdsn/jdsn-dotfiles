@@ -5,7 +5,7 @@ deflogin on
 autodetach on
 # escape ^xx
 
-caption always "%{wB}%0=%H%{kB} %?%-w%?%{bw}%n:%t%?(%u)%?%{kB}%?%+w%? %{wB}%=%c"
+caption always "%{WB}%0=%H%{kB} %?%-w%?%{bW}%n:%t%?(%u)%?%{kB}%?%+w%? %{WB}%=%c"
 
 #hardstatus on
 # simple hardstatus
