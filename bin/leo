@@ -1,17 +1,3 @@
-#!/bin/sh
-GREPWORD=Treffer
-#GREPWORD=contentholder
-#GREPWORD=centerColumn
-TEMPFILE=$(mktemp "/tmp/leo.XXXXXX") || exit 1
-trap "rm -f $TEMPFILE" EXIT
-if wget \
-        --quiet \
-        http://dict.leo.org/?search=$1 \
-        --output-document=/dev/stdout | grep -i $GREPWORD > $TEMPFILE
-        # --output-document=/dev/stdout > $TEMPFILE
-        # | grep -i "Treffer" > $TEMPFILE
-then
-    w3m -T text/html -dump $TEMPFILE | less
-else
-    echo "'$1' not found in leo" >&2
-fi
+#!/bin/bash
+
+python ~/bin/leo.py $@ | less
