@@ -11,6 +11,9 @@ set expandtab
 " allow backspace
 set bs=2
 
+" dark background
+set bg=dark
+
 " set color of comment to grey to be able to read it on black terminals
 " hi Comment ctermfg=grey cterm=none
 hi Comment ctermfg=gray
@@ -27,10 +30,14 @@ if has("autocmd")
     \ endif
 endif
 
-" highlight trailing whitespaces and spaces before before tabs
+" highlight trailing whitespaces (except when typing) and spaces before before tabs
 highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$\| \+\ze\t/
+"autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd BufWinLeave * call clearmatches()
+
+:nnoremap X :w<Enter>:!ruby -wc %<Enter>
+:nnoremap Y :w<Enter>:!make<Enter>
