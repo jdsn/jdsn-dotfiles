@@ -25,13 +25,14 @@
   ustat = shortlog -s -n
   y2make = ! make -f Makefile.cvs && make -i package && echo && echo "----------> DONE"
   lastten = log -10 --all --date-order
+  info = ! cat .git/config
   brtips = ! _git_brtips
 
 [branch]
   autosetuprebase = always
 
 [push]
-	default = current
+  default = current
 
 [color]
   ui = auto
