@@ -27,6 +27,8 @@
   lastten = log -10 --all --date-order
   info = ! cat .git/config
   brtips = ! _git_brtips
+  fog = branch --no-merged
+  unfog = branch --merged
 
 [branch]
   autosetuprebase = always
