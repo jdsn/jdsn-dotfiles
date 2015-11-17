@@ -4,9 +4,11 @@
 
 [alias]
   st = status
-  ss = status -s -b
+  ss = status -s -b -uno
+  ssu = status -s -b
   ci = commit
   br = branch
+  bro = for-each-ref --format='%(refname:short)' refs/heads
   ri = rebase --interactive --autosquash
   co = checkout
   ffm = merge --ff-only
@@ -14,10 +16,12 @@
   dc = diff --cached
   ds = diff --stat=200,80
   lp = log -p
+  up = "!git remote update -p; git merge --ff-only @{u}"
   logfind = log -p -S
   lf = log HEAD --graph --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   lfa = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
   lfi = log HEAD --graph --all --abbrev-commit --full-history --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   who = shortlog -s --
   lc = log ORIG_HEAD.. --stat --no-merges
   k = !gitk
@@ -27,8 +31,16 @@
   lastten = log -10 --all --date-order
   info = ! cat .git/config
   brtips = ! _git_brtips
+  brtm = ! _git_brtipsmail
+  bbbrtips = ! git for-each-ref --shell --format="echo %(refname:short) && git log -n 1 --format=format:\" %%cd%%n %%B\" %(refname)" refs/heads/ | sh | less -R
   fog = branch --no-merged
   unfog = branch --merged
+  fpu = fetch --prune upstream
+  fpo = fetch --prune origin
+  ffub = ! bash -c 'git fpu && git ffm upstream/`git rev-parse --abbrev-ref HEAD` && git push origin && git fpo'
+  rhub = ! bash -c 'git fpu && git reset --hard upstream/`git rev-parse --abbrev-ref HEAD` && git push origin -f && git fpo'
+  ffum = ! bash -c 'git checkout master && git ffub'
+  rsu = ! git reset --hard upstream/`git rev-parse --abbrev-ref HEAD`
 
 [branch]
   autosetuprebase = always
@@ -54,3 +66,15 @@
   added = green
   changed = cyan
   untracked = magenta
+
+
+## function pullify() { git config --add remote.origin.fetch '+refs/pull//head:refs/remotes/origin/pr/'  }
+## git config --global --add remote.origin.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
+## git config --global --add remote.upstream.fetch "+refs/pull/*/head:refs/remotes/origin/pr/*"
+#
+#[alias]
+# pr = "!f() { git fetch origin refs/pull/$1/head:pr/$1; } ; f"
+#
+#[alias]
+# pullify = config --add remote.origin.fetch '+refs/pull/*/head:refs/remotes/origin/pr/*'
+#
