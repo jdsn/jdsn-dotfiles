@@ -12,27 +12,19 @@
 # python ~/bin/leo.py $@ | less
 #
 
-import pycurl
-import cStringIO
 import xml.etree.ElementTree as ET
 import sys
-import urllib
+import urllib2
 
-search = urllib.quote(' '.join(sys.argv))
-
-xmldoc=None
-buffer = cStringIO.StringIO()
-
+search = urllib2.quote(' '.join(sys.argv))
 searchurl = 'http://dict.leo.org/dictQuery/m-vocab/ende/query.xml?tolerMode=nof&lp=ende&rmWords=off&rmSearch=on&search=%s&searchLoc=0&resultOrder=basic&multiwordShowSingle=on' % (search)
 
-if 1:
-    curl = pycurl.Curl()
-    curl.setopt(curl.URL, searchurl)
-    curl.setopt(curl.WRITEFUNCTION, buffer.write)
-    curl.perform()
-    xmlstr = buffer.getvalue()
-    buffer.close()
-    xmldoc = ET.fromstring(xmlstr)
+xmldoc=None
+method=1
+
+if method==1:
+    url = urllib2.urlopen(searchurl)
+    xmldoc = ET.parse(url)
 else:
     # for testing
     xmldoc = ET.parse("leo.xml")
@@ -45,9 +37,9 @@ for entry in entries:
 
     for lang in langs:
         trans[lang] = []
-        sides = entry.findall("./side[@lang='%s']/words" % lang)
+        sides = entry.findall("side[@lang='%s']/words" % lang)
         for side in sides:
-            words = side.findall("./word")
+            words = side.findall("word")
             for word in words:
                 trans[lang].append(word.text)
 
