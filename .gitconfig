@@ -48,6 +48,9 @@
 [push]
   default = current
 
+[rebase]
+        instructionFormat = %ci %ae %s
+
 [color]
   ui = auto
   branch = auto
