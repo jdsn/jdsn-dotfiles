@@ -1,0 +1,37 @@
+#  USB keyboards identified by the usb kernel modalias:
+#      keyboard:usb:vXXXXpYYYY*
+#    XXXX is the 4-digit hex uppercase vendor, and YYYY
+#    the 4-digit hex uppercase product.
+
+#  Scan codes are specified as:
+#    KEYBOARD_KEY_<hex scan code>=<key code identifier>
+#  The scan code should be expressed in hex lowercase and in
+#  full bytes, a multiple of 2 digits. The key codes are retrieved
+#  and normalized from the kernel input API header.
+
+# IMPORTANT:
+# after changing this file you have to run:
+# udevadm hwdb --update && udevadm trigger
+
+# Hints:
+# Identify the key codes of the device:
+# xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+#
+# Identify the KEYBOARD_KEY_* kex scan code:
+# evtest (as root)
+#
+# Also see:
+# https://wiki.archlinux.org/index.php/Map_scancodes_to_keycodes
+
+
+# Old syntax for first line (until openSUSE Leap 42.2):
+#keyboard:usb:v0C45p7403*
+
+# Current syntax:
+#evdev:input:b<bus_id>v<vendor_id>p<product_id>e<version_id>-<modalias>
+# KEYBOARD_KEY_<hex_id>=<key_code_id>
+
+evdev:input:b*v0C45p7403e*
+ KEYBOARD_KEY_70004=leftmeta
+ KEYBOARD_KEY_70005=f15
+ KEYBOARD_KEY_70006=f16
