@@ -39,7 +39,10 @@
   fpo = fetch --prune origin
   ffub = ! bash -c 'git fpu && git ffm upstream/`git rev-parse --abbrev-ref HEAD` && git push origin && git fpo'
   rhub = ! bash -c 'git fpu && git reset --hard upstream/`git rev-parse --abbrev-ref HEAD` && git push origin -f && git fpo'
-  ffum = ! bash -c 'git checkout master && git ffub'
+  coh  = ! bash -c 'git checkout `git remote show upstream | grep -Po \"(?<=^  HEAD branch: ).*\" | head -n 1`'
+  ffum = ! bash -c 'git coh && git ffub'
+  # force ffum to master branch
+  ffumaster = ! bash -c 'git checkout master && git ffub'
   rsu = ! git reset --hard upstream/`git rev-parse --abbrev-ref HEAD`
 
 [branch]
