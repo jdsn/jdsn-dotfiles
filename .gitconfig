@@ -46,6 +46,7 @@
   pushf = fp
   fp = push --force-with-lease
   rsu = ! git reset --hard upstream/`git rev-parse --abbrev-ref HEAD`
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 
 [branch]
   autosetuprebase = always
