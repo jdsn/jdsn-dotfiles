@@ -43,6 +43,8 @@
   ffum = ! bash -c 'git coh && git ffub'
   # force ffum to master branch
   ffumaster = ! bash -c 'git checkout master && git ffub'
+  pushf = fp
+  fp = push --force-with-lease
   rsu = ! git reset --hard upstream/`git rev-parse --abbrev-ref HEAD`
 
 [branch]
