@@ -1,5 +1,5 @@
-Quick reference
-===============
+# Quick reference
+# ===============
 # USB keyboards identified by the usb kernel modalias:
 #     evdev:input:b*vXXXXpYYYYe*
 #   XXXX is the 4-digit hex UPPERCASE vendor id, and
