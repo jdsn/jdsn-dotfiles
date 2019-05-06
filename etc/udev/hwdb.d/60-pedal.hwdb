@@ -58,7 +58,7 @@
 
 
 # Example
-=========
+# =========
 evdev:input:b*v0C45p7403e*
  KEYBOARD_KEY_70004=leftmeta
  KEYBOARD_KEY_70005=f15
